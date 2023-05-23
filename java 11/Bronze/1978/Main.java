@@ -6,24 +6,35 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException, NumberFormatException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
+        
         int N = Integer.parseInt(br.readLine());
-        int arr[] = new int[100];
+        
+        int arr[] = new int[N];
+        
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
         for(int i = 0; i < N; i++) {
-            if (st.hasMoreTokens()) {
+            if(st.hasMoreTokens()) {
                 arr[i] = Integer.parseInt(st.nextToken());
             }
-            System.out.println(arr[i]);
         }
-        
+
         int count = 0;
-        int num = 2;
-        for(int j=0; j < N; j++) {
-            for (int k=2; k <= num; k++) {
-                if(num % k == 0 && k != num) break;
-                if(num % k == 0 && k == num) count++;
+        for(int j = 0; j < N; j++) {
+            if(checkisPrimeNumber(arr[j]) && arr[j] != 1) {
+                count++;
             }
         }
+        System.out.print(count);
+        
+    }
+
+    static boolean checkisPrimeNumber(int num) {
+        for(int i = 2; i*i<=num; i++) {
+            if(num%i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
