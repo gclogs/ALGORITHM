@@ -7,21 +7,20 @@ import java.io.OutputStreamWriter;
 public class Main {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n = Integer.parseInt(br.readLine());
+        br.close();
         
-        for(int i = 0; i < n; i++) { // 세로
-            for(int j = (n-1); j < i; j--) { // 가로
+        
+        for(int i = 1; i <= n; i++) { // 세로
+            for(int j = 1; j <= (n-i); j++) { // 가로
                 bw.write(" ");
             }
-            for(int k = 0; k < i; k++) { // 가로
+            for(int k = 1; k <= i; k++) { // 가로
                 bw.write("*");
             }
-            bw.write("\n");
+            bw.newLine();
         }
-
-        br.close();
         bw.flush();
         bw.close();
     }   
