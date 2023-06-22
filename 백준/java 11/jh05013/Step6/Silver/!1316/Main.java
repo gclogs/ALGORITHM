@@ -21,7 +21,7 @@ public class Main {
             boolean tmp = true;                 // 그룹 단어 인지
 
             for(int j = 0; j < str.length(); j++) {
-                int index = str.charAt(j) - 'a';    // charAt() 메서드는 해당 문자의 아스키코드값을 반환함
+                int index = str.charAt(j) - 'a';    // 문자의 아스키코드값을 반환함
                 if(check[index]) {                  // 이전에 사용한 적이 있는 문자라면
                     if(str.charAt(j) != str.charAt(j-1)) {  // 이전 문자와 연속되지 않는다면
                         tmp = false;                // 그룹 문자가 아님
