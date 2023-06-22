@@ -12,7 +12,7 @@ public class Main {
         String str = br.readLine();
         
         br.close();
-        ㅊ
+        bw.write(String.valueOf((str.equalsIgnoreCase(new StringBuffer(str).reverse().toString())) ? 1 : 0));
         bw.flush();
         bw.close();
     }   
