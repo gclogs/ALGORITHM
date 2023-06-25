@@ -24,15 +24,10 @@ public class Main {
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             for(int j = 0; j < m; j++) {
-                B[i][j] = Integer.parseInt(st.nextToken());
+                A[i][j] += Integer.parseInt(st.nextToken());
+                System.out.print(A[i][j] + " ");
             }
-        }
-
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-               System.out.print(A[i][j] + B[i][j] + " ");
-               if(j == m-1) System.out.println();
-            }
+            System.out.println();
         }
     }
 }
