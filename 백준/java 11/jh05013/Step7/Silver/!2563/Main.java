@@ -22,7 +22,7 @@ public class Main {
 
             for(int j = x; j < x+10; j++) { // (x,y)부터 (x+9,y+9) 까지의 영역을 하나씩 체크
                 for(int k = y; k < y+10; k++) {
-                    if(paper[j][k] == false) {
+                    if(paper[j][k] ) {
                         paper[j][k] = true;
                         total++;    // 총 넓이에 더해줌
                     }
