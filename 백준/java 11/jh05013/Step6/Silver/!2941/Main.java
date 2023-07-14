@@ -8,11 +8,19 @@ public class Main {
     
     String[] croatia = { "c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z=" };
     
-    String word = br.readLine();
+    String str = br.readLine();
+    String word;
 
-    for(String s : croatia) {
-      word = word.replace(s, "*");
+    for(int i = 0; i < str.length(); i++) {
+      char ch1 = str.charAt(i); // 한글자 따오기
+
+      for(int j = 0; j < croatia.length; j++) {
+        int tmp = ch1 + str.charAt(i+1);
+        if(tmp == croatia) {
+
+        }
+      }
+        
     }
-    System.out.println(word.length());
   }
 }
