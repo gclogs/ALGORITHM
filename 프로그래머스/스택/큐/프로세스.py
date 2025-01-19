@@ -5,6 +5,9 @@
 # 따라서 C,D,E,F,A,B 가 되어야함
 # location 0이라면 A인데 우선순위가 5가 됨
 
+from queue import Queue
+
+
 def solution(priorities, location):
     # (우선순위, 초기 위치)를 리스트에 저장
     queue = []
@@ -15,23 +18,23 @@ def solution(priorities, location):
     answer = 0
     
     while queue:
-        current = queue.pop(0)
+        current = queue.pop(0) # 큐의 순서대로 뒤로 이동
         print(f"\n현재 프로세스: {current}")
         print(f"남은 큐: {queue}")
         
         # 우선순위 비교 과정 출력
         higher_exists = False
         for q in queue:
-            if current[0] < q[0]:
+            if current[0] < q[0]: # current[인덱스]와 q[인덱스]는 우선순위를 나타냄
                 print(f"더 높은 우선순위 발견: {current[0]} < {q[0]}")
                 higher_exists = True
                 break
             else:
                 print(f"우선순위 비교: {current[0]} >= {q[0]}")
         
-        if higher_exists:
-            queue.append(current)
-            print(f"현재 프로세스를 뒤로 이동: {current}")
+        if higher_exists: # 높은 우선순위가 있는가?
+            queue.append(current) # 큐에 추가
+            print(f"현재 프로세스를 뒤로 이동: {queue}")
         else:
             answer += 1
             print(f"프로세스 실행 (순서: {answer})")
