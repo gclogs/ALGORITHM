@@ -1,14 +1,14 @@
-# [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
+# 🔍 [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
 
 ---
 
-## 문제 해결 방법 비교 분석
+## 📝 문제 해결 방법 비교 분석
 
 세 가지 다른 접근 방식으로 문제를 해결했습니다:
 
 ---
 
-### 1. ASCII 값을 이용한 방식
+### 🔨 1. ASCII 값을 이용한 방식
 ```python
 def firstUniqChar(self, s: str) -> int:
     res = n = len(s)
@@ -19,21 +19,21 @@ def firstUniqChar(self, s: str) -> int:
     return -1 if res == n else res
 ```
 
-#### 사용된 자료구조와 개념:
+#### 🛠 사용된 자료구조와 개념:
 - **문자열(String)**: 기본 입력 데이터 구조
 - **ASCII 값**: 문자를 숫자로 변환하여 처리
 - **투 포인터 개념**: find()와 rfind()로 양쪽에서 검색
 
-#### 시간복잡도: O(n)
+#### ⏱ 시간복잡도: O(n)
 - 알파벳 26개에 대해 각각 O(n) 검색
 - 26 * O(n) = O(n)
 
-#### 공간복잡도: O(1)
+#### 💾 공간복잡도: O(1)
 - 추가 메모리 사용 없음
 
 ---
 
-### 2. Set을 이용한 방식
+### 🎯 2. Set을 이용한 방식
 ```python
 def firstUniqChar(self, s: str) -> int:
     result = len(s)
@@ -45,21 +45,21 @@ def firstUniqChar(self, s: str) -> int:
     return result if result != len(s) else -1
 ```
 
-#### 사용된 자료구조와 개념:
+#### 🛠 사용된 자료구조와 개념:
 - **Set(해시 테이블)**: 중복 제거를 위한 자료구조
 - **문자열(String)**: 기본 입력 데이터 구조
 - **투 포인터 개념**: index()와 rindex()로 양쪽에서 검색
 
-#### 시간복잡도: O(n)
+#### ⏱ 시간복잡도: O(n)
 - set 생성: O(n)
 - 각 고유 문자에 대해 O(n) 검색
 
-#### 공간복잡도: O(k)
+#### 💾 공간복잡도: O(k)
 - k는 고유 문자의 수 (최대 26)
 
 ---
 
-### 3. 딕셔너리를 이용한 방식
+### 🎲 3. 딕셔너리를 이용한 방식
 ```python
 def firstUniqChar(self, s: str) -> int:
     char_count = {}
@@ -72,24 +72,24 @@ def firstUniqChar(self, s: str) -> int:
     return -1
 ```
 
-#### 사용된 자료구조와 개념:
+#### 🛠 사용된 자료구조와 개념:
 - **딕셔너리(해시 테이블)**: 문자 출현 횟수 저장
 - **문자열(String)**: 기본 입력 데이터 구조
 - **카운터 개념**: 각 문자의 등장 횟수 계산
 
-#### 시간복잡도: O(n)
+#### ⏱ 시간복잡도: O(n)
 - 첫 번째 순회: O(n)
 - 두 번째 순회: O(n)
 - 총 2 * O(n) = O(n)
 
-#### 공간복잡도: O(1)
+#### 💾 공간복잡도: O(1)
 - 최대 26개의 알파벳만 저장
 
 ---
 
-## 코드 상세 분석
+## 🔬 코드 상세 분석
 
-### 1. ASCII 값을 이용한 방식 (코드 분해)
+### 🔨 1. ASCII 값을 이용한 방식 (코드 분해)
 
 ```python
 def firstUniqChar(self, s: str) -> int:
@@ -101,7 +101,7 @@ def firstUniqChar(self, s: str) -> int:
     return -1 if res == n else res          # 6. 결과 반환
 ```
 
-#### 코드 동작 예시 (s = "leetcode")
+#### 📊 코드 동작 예시 (s = "leetcode")
 1. `res = n = 8` (문자열 길이)
 2. 'a'부터 'z'까지 순회:
    - 'l' 검사: find('l') = 0, rfind('l') = 0 → 유일 문자! res = 0
@@ -111,7 +111,7 @@ def firstUniqChar(self, s: str) -> int:
 
 ---
 
-### 2. Set을 이용한 방식 (코드 분해)
+### 🎯 2. Set을 이용한 방식 (코드 분해)
 
 ```python
 def firstUniqChar(self, s: str) -> int:
@@ -124,7 +124,7 @@ def firstUniqChar(self, s: str) -> int:
     return result if result != len(s) else -1  # 7. 결과 반환
 ```
 
-#### 코드 동작 예시 (s = "leetcode")
+#### 📊 코드 동작 예시 (s = "leetcode")
 1. `result = 8` (문자열 길이)
 2. `s_set = {'l', 'e', 't', 'c', 'o', 'd'}` (중복 'e' 제거)
 3. 각 고유 문자 검사:
@@ -135,7 +135,7 @@ def firstUniqChar(self, s: str) -> int:
 
 ---
 
-### 3. 딕셔너리를 이용한 방식 (코드 분해)
+### 🎲 3. 딕셔너리를 이용한 방식 (코드 분해)
 
 ```python
 def firstUniqChar(self, s: str) -> int:
@@ -149,7 +149,7 @@ def firstUniqChar(self, s: str) -> int:
     return -1                          # 6. 못 찾으면 -1 반환
 ```
 
-#### 코드 동작 예시 (s = "leetcode")
+#### 📊 코드 동작 예시 (s = "leetcode")
 1. 첫 번째 순회 후 딕셔너리 상태:
    ```python
    char_count = {
@@ -163,28 +163,28 @@ def firstUniqChar(self, s: str) -> int:
 
 ---
 
-## 각 방식의 특징적인 차이점
+## 🔄 각 방식의 특징적인 차이점
 
-1. **순회 방식**:
-   - **ASCII**: 알파벳 26개에 대해 문자열 전체 검색
-   - **Set**: 중복 제거된 문자에 대해 문자열 전체 검색
-   - **딕셔너리**: 문자열을 단 두 번만 순회
+### 1️⃣ 순회 방식
+- **ASCII**: 알파벳 26개에 대해 문자열 전체 검색
+- **Set**: 중복 제거된 문자에 대해 문자열 전체 검색
+- **딕셔너리**: 문자열을 단 두 번만 순회
 
-2. **메모리 사용**:
-   - **ASCII**: 추가 메모리 거의 없음
-   - **Set**: 중복 제거된 문자 저장
-   - **딕셔너리**: 문자별 카운트 저장
+### 2️⃣ 메모리 사용
+- **ASCII**: 추가 메모리 거의 없음
+- **Set**: 중복 제거된 문자 저장
+- **딕셔너리**: 문자별 카운트 저장
 
-3. **조기 종료**:
-   - **ASCII**: 모든 알파벳 검사 필요
-   - **Set**: 모든 고유 문자 검사 필요
-   - **딕셔너리**: 첫 유일 문자 발견 시 즉시 종료
+### 3️⃣ 조기 종료
+- **ASCII**: 모든 알파벳 검사 필요
+- **Set**: 모든 고유 문자 검사 필요
+- **딕셔너리**: 첫 유일 문자 발견 시 즉시 종료
 
 ---
 
-## 결론
+## 📌 결론
 
-### 성능 비교
+### 🏃 성능 비교
 1. **시간 효율성**:
    - 딕셔너리 방식이 가장 효율적 (단 두 번의 순회)
    - ASCII 방식은 일정한 성능 (26번의 전체 순회)
@@ -194,12 +194,12 @@ def firstUniqChar(self, s: str) -> int:
    - ASCII 방식이 가장 효율적 (추가 공간 불필요)
    - 딕셔너리와 Set 방식은 추가 공간 필요
 
-### 코드 가독성
+### 📖 코드 가독성
 1. 딕셔너리 방식: 가장 직관적이고 이해하기 쉬움
 2. Set 방식: 중간 정도의 복잡성
 3. ASCII 방식: 가장 기술적이고 복잡함
 
-### 권장 사용 상황
+### 💡 권장 사용 상황
 - **메모리 제약이 심한 경우**: ASCII 방식
 - **일반적인 상황**: 딕셔너리 방식
 - **중복이 많은 데이터**: Set 방식
