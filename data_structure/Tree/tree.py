@@ -7,16 +7,16 @@ class Node:
 # 전위 순회
 def pre_order(node):
     if node:
+        print(node.data)  # 루트 노드 방문
         pre_order(node.left)  # 왼쪽 서브트리 순회
         pre_order(node.right)  # 오른쪽 서브트리 순회
-        print(node.data)  # 루트 노드 방문
 
 # 중위 순회
 def in_order(node):
     if node:
         in_order(node.left)  # 왼쪽 서브트리 순회
-        in_order(node.right)  # 오른쪽 서브트리 순회
         print(node.data)  # 루트 노드 방문
+        in_order(node.right)  # 오른쪽 서브트리 순회
 
 # 후위 순회
 def post_order(node):
