@@ -91,6 +91,57 @@ class Tree:
                     break
                 else:
                     q.append(node.right)
+    
+    def delete_key(tree, key):
+        q = [tree.root]
+        delete_node = None
+        while q:
+            node = q.pop(0)
+            last_data = node.data
+            if node.data == key:
+                delete_node = node
+                break
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+        
+        if delete_node is None:
+            print(f"There is not {key}")
+        else:
+            q = [tree.root]
+            while q:
+                node = q.pop(0)
+                if node.left:
+                    if node.left.data == key:
+                        node.left = None
+                        break
+                    else:
+                        q.append(node.left)
+                if node.right:
+                    if node.right.data == key:
+                        node.right = None
+                        break
+                    else:
+                        q.append(node.right)
+                delete_node.data = last_data
+    
+    def find_has_no_sibling(node):
+        res, q = [], [tree.root]
+        while q:
+            node = q.pop(0)
+            if node.left:
+                if not node.left:
+                    q.append(node.left)
+                    if not node.right:
+                        res.append(node.left.data)
+                        continue
+                if node.right:
+                    q.append(node.right)
+                    if not node.right:
+                        res.append(node.right.data)
+                        continue
+        return res if res else [-1]
 
 if __name__ == "__main__":
     tree = Tree()
@@ -101,5 +152,11 @@ if __name__ == "__main__":
     insert_key(tree, 12)
     print(tree.level_order())
 
-    insert_key(tree, 12)
+    insert_key(tree, 13)
+    print(tree.level_order())
+
+    delete_key(tree, 12)
+    print(tree.level_order())
+
+    delete_key(tree, 13)    
     print(tree.level_order())
