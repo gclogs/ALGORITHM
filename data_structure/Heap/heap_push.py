@@ -18,6 +18,25 @@ def heap_push(heap, data):
         else:
             break
 
+def heap_pop(heap):
+    if not heap:
+        return "Empty Heap"
+    elif len(heap) == 1:
+        return heap.pop()
+    
+    pop_data, heap[0] = heap[0], heap.pop()
+    current, child = 0, 1
+    while child < len(heap):
+        sibling = child + 1
+        if sibling < len(heap) and heap[sibling] < heap[child]:
+            child = sibling
+        if heap[current] > heap[child]:
+            heap[current], heap[child] = heap[child], heap[current]
+            current = child
+        else:
+            break
+    return pop_data
+
 import heapq
 h1 = [3,4,5,6,7,8,9]
 h2 = [3,4,5,6,7,8,9]
@@ -35,3 +54,12 @@ heapq.heappush(h2, 1)
 print(f"힙 {h1}에 3을 추가한 결과")
 print("구현한 함수의 결과:", h1)
 print("heapq.heappush 메소드의 결과:", h2)
+
+data1 = heap_pop(h1)
+data2 = heapq.heappop(h2)
+
+print(f"힙 {h1}에서 제거한 결과", data1)
+print("구현한 함수의 pop 이후:", h1)
+
+print(f"힙 {h2}에서 제거한 결과", data2)
+print("heapq.heappop 메소드의 결과:", h2)
